@@ -1,0 +1,32 @@
+<form class="form-inline" #fm=ngForm>
+  <input class="form-control mr-sm-2" type="number" placeholder="Pesquisar" aria-label="Pesquisar" name="cliente"
+     [(ngModel)]="cliente.cocliente">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="buscarCliente()">Pesquisar</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Limite de Credito</th>
+        <th scope="col">Status</th>
+        <th scope="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{cliente.cocliente}}</th>
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.limiteCredito}}</td>
+        <td>{{cliente.statusCliente}}</td>
+        <td><button class="btn btn-danger" type="submit"
+         (click)="apagarCliente(cliente.cocliente)" *ngIf="habilitarBotao">Deletar</button>
+          <button type="button" class="btn btn-warning" *ngIf="habilitarBotao" [disabled]='fm.form.invalid' (click)="atualizarCliente(cliente.cocliente)">Atualizar</button></td>
+      </tr>
+    </tbody>
+  </table>
+<div>{{ mensagem }}</div>
+</form>
+

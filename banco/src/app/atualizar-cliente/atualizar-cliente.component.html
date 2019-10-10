@@ -1,0 +1,51 @@
+<form #fm="ngForm"  (ngSubmit)="atualizarCliente()">
+    <div class="form-group row">
+      <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+      <div class="col-sm-10">
+        <input type="text" name='nome' id="nome" class="form-control" #no=ngModel [(ngModel)]="clientes.nome" placeholder="Nome Completo">
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" name="email" id="email" #em=ngModel class="form-control" [(ngModel)]="clientes.email" placeholder="Email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="limiteCredito" class="col-sm-2 col-form-label" >Limite de Credito Inicial</label>
+      <div class="col-sm-10">
+        <input type="number" name="limite" id="limite"  #lm=ngModel class="form-control" [(ngModel)]="clientes.limiteCredito">
+      </div>
+    </div>
+
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Status Clientes</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="status" id="status" #st=ngModel [(ngModel)]="clientes.statusCliente" value="Ativo" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Ativo
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="status" id="status" #st=ngModel [(ngModel)]="clientes.statusCliente" value="Inativo">
+              <label class="form-check-label" for="gridRadios2">
+                Inativo
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]='fm.form.invalid' (click)="atualizarCliente()">Atualizar</button>
+      </div>
+
+      <div>{{menssagem}}</div>
+    </div>
+  </form>

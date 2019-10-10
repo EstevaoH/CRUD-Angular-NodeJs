@@ -1,0 +1,16 @@
+<table class="table">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Email</th>
+    <th scope="col">Limite de Credito</th>
+    <th scope="col">Status</th>
+  </tr>
+  <tr *ngFor="let c of clientes">
+    <th scope="row">{{c.cocliente}}</th>
+    <td>{{c.nome}}</td>
+    <td>{{c.email}}</td>
+    <td>{{c.limiteCredito}}</td>
+    <td>{{c.statusCliente}}</td>
+  </tr>
+</table>
